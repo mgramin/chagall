@@ -1,2 +1,2 @@
-# chagall
+# Chagall
 Turn your data to something beautiful
