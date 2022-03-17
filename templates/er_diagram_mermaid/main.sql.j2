@@ -1,0 +1,4 @@
+select s.table_name
+     , string_agg(s.column_name || ' ' || replace(s.data_type, ' ', '_'), chr(10)) as columns
+  from ({% include 'sql/table_columns.sql.j2' %}) s
+ group by table_name

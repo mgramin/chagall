@@ -1,0 +1,42 @@
+{% extends "templates/_common/bootstrap.html.j2" %}
+
+{% import 'sql/table_columns.sql.j2' as table_columns_sql with context %}
+{% set columns = fetchall(table_columns_sql | string) %}
+
+
+{% block content %}
+<div class="row row-cols-2">
+
+
+{% for table_name, table_columns in columns|groupby("table_name") %}
+<div class="col">
+<table class="table table-sm table-striped table-bordered table-hover caption-top">
+  <caption>{{ table_name }}</caption>
+  <thead class="table-dark">
+    <tr>
+      <th scope="col">Position</th>
+      <th scope="col">Name</th>
+      <th scope="col">Data Type</th>
+      <th scope="col">Max Length</th>
+      <th scope="col">Is Nullable</th>
+    </tr>
+  </thead>
+  <tbody>
+      {% for column in table_columns %}
+      <tr>
+        <th scope="row">{{ column["ordinal_position"] }}</th>
+        <td>{{ column["column_name"] }}</td>
+        <td>{{ column["data_type"] }}</td>
+        <td>{% if column["character_maximum_length"] %}{{ column["character_maximum_length"] }}{% endif %}</td>
+        <td>{% if column["is_nullable"] == 'YES' %}<i class="bi bi-check-lg"></i>{% endif %}</td>
+      </tr>
+      {% endfor %}
+  </tbody>
+</table>
+</div>
+{% endfor %}
+
+
+</div>
+
+{% endblock %}
