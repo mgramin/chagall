@@ -1,8 +1,22 @@
 # Chagall
 Turn your data into something beautiful
 
+
+## How to Run
+
+Activate virtual env (optional):
 ```
 source .venv/bin/activate
+```
+
+Install dependencies:
+```
+pip3 install -r ./requirements.txt
+```
+
+Run:
+```
+python ./chagall.py -h
 ```
 
 
