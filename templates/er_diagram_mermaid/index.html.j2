@@ -3,7 +3,7 @@
 {% import 'templates/er_diagram_mermaid/main.sql.j2' as tables_sql with context %}
 {% set tables = fetchall(tables_sql | string) %}
 
-{% import 'sql/table_relationships.sql.j2' as table_relationships_sql with context %}
+{% import 'sql/table_relationships.sql' as table_relationships_sql with context %}
 {% set table_relationships = fetchall(table_relationships_sql | string) %}
 
 

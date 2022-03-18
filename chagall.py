@@ -24,8 +24,8 @@ connection = psycopg2.connect(
 cursor = connection.cursor()
 
 
-def fetchone(query):
-    cursor.execute(query)
+def fetchone(query, params):
+    cursor.execute(query, params)
     result = cursor.fetchone()
     return result
 
