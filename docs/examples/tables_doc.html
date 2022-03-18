@@ -1,0 +1,482 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+
+    <title>Hello from Chagall!</title>
+  </head>
+  <body>
+    <div class="container">
+
+        
+<div class="row row-cols-2">
+
+
+
+<div class="col">
+<table class="table table-sm table-striped table-bordered table-hover caption-top">
+  <caption>aircrafts_data</caption>
+  <thead class="table-dark">
+    <tr>
+      <th scope="col">Position</th>
+      <th scope="col">Name</th>
+      <th scope="col">Data Type</th>
+      <th scope="col">Max Length</th>
+      <th scope="col">Is Nullable</th>
+    </tr>
+  </thead>
+  <tbody>
+      
+      <tr>
+        <th scope="row">1</th>
+        <td>aircraft_code</td>
+        <td>character</td>
+        <td>3</td>
+        <td></td>
+      </tr>
+      
+      <tr>
+        <th scope="row">2</th>
+        <td>model</td>
+        <td>jsonb</td>
+        <td></td>
+        <td></td>
+      </tr>
+      
+      <tr>
+        <th scope="row">3</th>
+        <td>range</td>
+        <td>integer</td>
+        <td></td>
+        <td></td>
+      </tr>
+      
+  </tbody>
+</table>
+</div>
+
+<div class="col">
+<table class="table table-sm table-striped table-bordered table-hover caption-top">
+  <caption>airports_data</caption>
+  <thead class="table-dark">
+    <tr>
+      <th scope="col">Position</th>
+      <th scope="col">Name</th>
+      <th scope="col">Data Type</th>
+      <th scope="col">Max Length</th>
+      <th scope="col">Is Nullable</th>
+    </tr>
+  </thead>
+  <tbody>
+      
+      <tr>
+        <th scope="row">1</th>
+        <td>airport_code</td>
+        <td>character</td>
+        <td>3</td>
+        <td></td>
+      </tr>
+      
+      <tr>
+        <th scope="row">2</th>
+        <td>airport_name</td>
+        <td>jsonb</td>
+        <td></td>
+        <td></td>
+      </tr>
+      
+      <tr>
+        <th scope="row">3</th>
+        <td>city</td>
+        <td>jsonb</td>
+        <td></td>
+        <td></td>
+      </tr>
+      
+      <tr>
+        <th scope="row">4</th>
+        <td>coordinates</td>
+        <td>point</td>
+        <td></td>
+        <td></td>
+      </tr>
+      
+      <tr>
+        <th scope="row">5</th>
+        <td>timezone</td>
+        <td>text</td>
+        <td></td>
+        <td></td>
+      </tr>
+      
+  </tbody>
+</table>
+</div>
+
+<div class="col">
+<table class="table table-sm table-striped table-bordered table-hover caption-top">
+  <caption>boarding_passes</caption>
+  <thead class="table-dark">
+    <tr>
+      <th scope="col">Position</th>
+      <th scope="col">Name</th>
+      <th scope="col">Data Type</th>
+      <th scope="col">Max Length</th>
+      <th scope="col">Is Nullable</th>
+    </tr>
+  </thead>
+  <tbody>
+      
+      <tr>
+        <th scope="row">1</th>
+        <td>ticket_no</td>
+        <td>character</td>
+        <td>13</td>
+        <td></td>
+      </tr>
+      
+      <tr>
+        <th scope="row">2</th>
+        <td>flight_id</td>
+        <td>integer</td>
+        <td></td>
+        <td></td>
+      </tr>
+      
+      <tr>
+        <th scope="row">3</th>
+        <td>boarding_no</td>
+        <td>integer</td>
+        <td></td>
+        <td></td>
+      </tr>
+      
+      <tr>
+        <th scope="row">4</th>
+        <td>seat_no</td>
+        <td>character varying</td>
+        <td>4</td>
+        <td></td>
+      </tr>
+      
+  </tbody>
+</table>
+</div>
+
+<div class="col">
+<table class="table table-sm table-striped table-bordered table-hover caption-top">
+  <caption>bookings</caption>
+  <thead class="table-dark">
+    <tr>
+      <th scope="col">Position</th>
+      <th scope="col">Name</th>
+      <th scope="col">Data Type</th>
+      <th scope="col">Max Length</th>
+      <th scope="col">Is Nullable</th>
+    </tr>
+  </thead>
+  <tbody>
+      
+      <tr>
+        <th scope="row">1</th>
+        <td>book_ref</td>
+        <td>character</td>
+        <td>6</td>
+        <td></td>
+      </tr>
+      
+      <tr>
+        <th scope="row">2</th>
+        <td>book_date</td>
+        <td>timestamp with time zone</td>
+        <td></td>
+        <td></td>
+      </tr>
+      
+      <tr>
+        <th scope="row">3</th>
+        <td>total_amount</td>
+        <td>numeric</td>
+        <td></td>
+        <td></td>
+      </tr>
+      
+  </tbody>
+</table>
+</div>
+
+<div class="col">
+<table class="table table-sm table-striped table-bordered table-hover caption-top">
+  <caption>flights</caption>
+  <thead class="table-dark">
+    <tr>
+      <th scope="col">Position</th>
+      <th scope="col">Name</th>
+      <th scope="col">Data Type</th>
+      <th scope="col">Max Length</th>
+      <th scope="col">Is Nullable</th>
+    </tr>
+  </thead>
+  <tbody>
+      
+      <tr>
+        <th scope="row">1</th>
+        <td>flight_id</td>
+        <td>integer</td>
+        <td></td>
+        <td></td>
+      </tr>
+      
+      <tr>
+        <th scope="row">2</th>
+        <td>flight_no</td>
+        <td>character</td>
+        <td>6</td>
+        <td></td>
+      </tr>
+      
+      <tr>
+        <th scope="row">3</th>
+        <td>scheduled_departure</td>
+        <td>timestamp with time zone</td>
+        <td></td>
+        <td></td>
+      </tr>
+      
+      <tr>
+        <th scope="row">4</th>
+        <td>scheduled_arrival</td>
+        <td>timestamp with time zone</td>
+        <td></td>
+        <td></td>
+      </tr>
+      
+      <tr>
+        <th scope="row">5</th>
+        <td>departure_airport</td>
+        <td>character</td>
+        <td>3</td>
+        <td></td>
+      </tr>
+      
+      <tr>
+        <th scope="row">6</th>
+        <td>arrival_airport</td>
+        <td>character</td>
+        <td>3</td>
+        <td></td>
+      </tr>
+      
+      <tr>
+        <th scope="row">7</th>
+        <td>status</td>
+        <td>character varying</td>
+        <td>20</td>
+        <td></td>
+      </tr>
+      
+      <tr>
+        <th scope="row">8</th>
+        <td>aircraft_code</td>
+        <td>character</td>
+        <td>3</td>
+        <td></td>
+      </tr>
+      
+      <tr>
+        <th scope="row">9</th>
+        <td>actual_departure</td>
+        <td>timestamp with time zone</td>
+        <td></td>
+        <td><i class="bi bi-check-lg"></i></td>
+      </tr>
+      
+      <tr>
+        <th scope="row">10</th>
+        <td>actual_arrival</td>
+        <td>timestamp with time zone</td>
+        <td></td>
+        <td><i class="bi bi-check-lg"></i></td>
+      </tr>
+      
+  </tbody>
+</table>
+</div>
+
+<div class="col">
+<table class="table table-sm table-striped table-bordered table-hover caption-top">
+  <caption>seats</caption>
+  <thead class="table-dark">
+    <tr>
+      <th scope="col">Position</th>
+      <th scope="col">Name</th>
+      <th scope="col">Data Type</th>
+      <th scope="col">Max Length</th>
+      <th scope="col">Is Nullable</th>
+    </tr>
+  </thead>
+  <tbody>
+      
+      <tr>
+        <th scope="row">1</th>
+        <td>aircraft_code</td>
+        <td>character</td>
+        <td>3</td>
+        <td></td>
+      </tr>
+      
+      <tr>
+        <th scope="row">2</th>
+        <td>seat_no</td>
+        <td>character varying</td>
+        <td>4</td>
+        <td></td>
+      </tr>
+      
+      <tr>
+        <th scope="row">3</th>
+        <td>fare_conditions</td>
+        <td>character varying</td>
+        <td>10</td>
+        <td></td>
+      </tr>
+      
+  </tbody>
+</table>
+</div>
+
+<div class="col">
+<table class="table table-sm table-striped table-bordered table-hover caption-top">
+  <caption>ticket_flights</caption>
+  <thead class="table-dark">
+    <tr>
+      <th scope="col">Position</th>
+      <th scope="col">Name</th>
+      <th scope="col">Data Type</th>
+      <th scope="col">Max Length</th>
+      <th scope="col">Is Nullable</th>
+    </tr>
+  </thead>
+  <tbody>
+      
+      <tr>
+        <th scope="row">1</th>
+        <td>ticket_no</td>
+        <td>character</td>
+        <td>13</td>
+        <td></td>
+      </tr>
+      
+      <tr>
+        <th scope="row">2</th>
+        <td>flight_id</td>
+        <td>integer</td>
+        <td></td>
+        <td></td>
+      </tr>
+      
+      <tr>
+        <th scope="row">3</th>
+        <td>fare_conditions</td>
+        <td>character varying</td>
+        <td>10</td>
+        <td></td>
+      </tr>
+      
+      <tr>
+        <th scope="row">4</th>
+        <td>amount</td>
+        <td>numeric</td>
+        <td></td>
+        <td></td>
+      </tr>
+      
+  </tbody>
+</table>
+</div>
+
+<div class="col">
+<table class="table table-sm table-striped table-bordered table-hover caption-top">
+  <caption>tickets</caption>
+  <thead class="table-dark">
+    <tr>
+      <th scope="col">Position</th>
+      <th scope="col">Name</th>
+      <th scope="col">Data Type</th>
+      <th scope="col">Max Length</th>
+      <th scope="col">Is Nullable</th>
+    </tr>
+  </thead>
+  <tbody>
+      
+      <tr>
+        <th scope="row">1</th>
+        <td>ticket_no</td>
+        <td>character</td>
+        <td>13</td>
+        <td></td>
+      </tr>
+      
+      <tr>
+        <th scope="row">2</th>
+        <td>book_ref</td>
+        <td>character</td>
+        <td>6</td>
+        <td></td>
+      </tr>
+      
+      <tr>
+        <th scope="row">3</th>
+        <td>passenger_id</td>
+        <td>character varying</td>
+        <td>20</td>
+        <td></td>
+      </tr>
+      
+      <tr>
+        <th scope="row">4</th>
+        <td>passenger_name</td>
+        <td>text</td>
+        <td></td>
+        <td></td>
+      </tr>
+      
+      <tr>
+        <th scope="row">5</th>
+        <td>contact_data</td>
+        <td>jsonb</td>
+        <td></td>
+        <td><i class="bi bi-check-lg"></i></td>
+      </tr>
+      
+  </tbody>
+</table>
+</div>
+
+
+
+</div>
+
+
+
+    </div>
+
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
+    <!--
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
+    -->
+    </body>
+</html>
