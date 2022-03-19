@@ -4,8 +4,9 @@ Turn your data into something beautiful
 
 ## How to Run
 
-Activate virtual env (optional):
+Init and activate virtual env (optional):
 ```
+virtualenv .venv
 source .venv/bin/activate
 ```
 

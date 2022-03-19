@@ -4,7 +4,7 @@ import jinja2
 import toml
 
 from psycopg2.extras import DictCursor
-
+from colour import Color
 
 parser = argparse.ArgumentParser(description='Chagall - Turn your data into something beautiful')
 parser.add_argument('template_file', type=str, help='Template file name')

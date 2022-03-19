@@ -1,15 +1,19 @@
 {
     "type": "outlabeledPie",
     "data": {
-        "labels": {{ big_tables["table_name"] }},
+        "labels": {{ chart_parameters["labels"] }},
         "datasets": [
             {
-                "backgroundColor": {{ big_tables["colors"] }},
-                "data": {{ big_tables["table_size"] }}
+                "backgroundColor": {{ chart_parameters["colors"] }},
+                "data": {{ chart_parameters["data"] }}
             }
         ]
     },
     "options": {
+        "title": {
+            "display": true,
+            "text": "{{ chart_name }}"
+        },
         "plugins": {
             "legend": false,
             "outlabels": {

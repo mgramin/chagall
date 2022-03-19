@@ -1,0 +1,19 @@
+{
+  "type": "doughnut",
+  "data": {
+    "datasets": [
+      {
+        "data": {{ chart_parameters['data'] }},
+        "backgroundColor": {{ chart_parameters['colors'] }},
+        "label": "Dataset 1"
+      },
+    ],
+    "labels": {{ chart_parameters['labels'] }}
+  },
+  "options": {
+    "title": {
+      "display": true,
+      "text": "{{ chart_name }}"
+    }
+  }
+}

@@ -1,0 +1,47 @@
+{% extends "templates/_common/bootstrap.html.j2" %}
+
+{% set params = [5, "bookings"] %}
+
+
+{% import 'templates/big_tables/largest_tables.sql.j2' as top_largest_tables_sql with context %}
+{% set chart_parameters = fetchone(top_largest_tables_sql | string, params) %}
+{% set chart_name = "Top 5 largest tables" %}
+
+{% import 'templates/_common/quickchart_outlabeled_pie.json.j2' as outlabeled_pie_json with context %}
+
+
+{% block content %}
+    
+    <div class="row">
+        <img src='https://quickchart.io/chart?c={{ outlabeled_pie_json | urlencode() }}'>
+    </div>
+
+    <div class="row">
+        <pre>
+            <code class="language-sql">
+                {{ top_largest_tables_sql }}
+            </code>
+        </pre>
+    </div>
+
+
+
+    {% import 'templates/big_tables/max_rows_tables.sql.j2' as max_rows_table_sql with context %}
+    {% set chart_parameters = fetchone(max_rows_table_sql | string, params) %}
+    {% set chart_name = "Top 5 max rows tables" %}
+
+    {% import 'templates/_common/quickchart_doughnut.json.j2' as quickchart_doughnut_json with context %}
+
+    <div class="row">
+        <img src='https://quickchart.io/chart?c={{ quickchart_doughnut_json | urlencode() }}'>
+    </div>
+
+    <div class="row">
+        <pre>
+            <code class="language-sql">
+                {{ max_rows_table_sql }}
+            </code>
+        </pre>
+    </div>
+
+{% endblock %}

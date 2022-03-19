@@ -1,4 +1,0 @@
-select json_agg(table_name)::text as table_name
-     , json_agg(total_size)::text as table_size
-     , json_agg(concat('#',lpad(to_hex(round(random() * 10000000)::int4),6,'0')))::text as colors
-  from ({% include 'sql/top_largest_tables.sql' %}) s
