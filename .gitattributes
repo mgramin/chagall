@@ -1,3 +1,3 @@
 *.sql linguist-detectable=true
 *.sql linguist-language=sql
-docs/** linguist-vendored
+docs/** linguist-detectable=false
