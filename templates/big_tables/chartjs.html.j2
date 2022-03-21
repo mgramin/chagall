@@ -1,0 +1,28 @@
+{% extends "templates/_common/bootstrap.html.j2" %}
+
+{% set params = { "max_table_count": 5, "schema_name": "bookings"} %}
+
+{% import 'templates/big_tables/big_tables.sql.j2' as big_tables_sql with context %}
+{% set chart_parameters = fetchone(big_tables_sql | string, params) %}
+
+{% import 'templates/_common/chartjs_doughnut.json.j2' as chartjs_doughnut_json with context %}
+
+
+{% block content %}
+
+  <div class="row">
+    <div class="col-3"></div>
+    <div class="col-6">
+      <canvas id="myChart"></canvas>
+    </div>
+    <div class="col-3"></div>
+  </div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js@3.7.1/dist/chart.min.js"></script>
+
+<script>
+  const ctx = document.getElementById('myChart').getContext('2d');
+  const myChart = new Chart(ctx, {{ chartjs_doughnut_json }} );
+</script>
+
+{% endblock %}

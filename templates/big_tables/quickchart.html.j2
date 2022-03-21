@@ -1,0 +1,16 @@
+{% extends "templates/_common/bootstrap.html.j2" %}
+
+{% set params = { "max_table_count": 5, "schema_name": "bookings"} %}
+
+{% import 'templates/big_tables/big_tables.sql.j2' as top_largest_tables_sql with context %}
+{% set chart_parameters = fetchone(top_largest_tables_sql | string, params) %}
+
+{% set chart_name = "Top 5 Largest Tables in <<Bookings>> Schema" %}
+{% import 'templates/_common/quickchart_outlabeled_pie.json.j2' as outlabeled_pie_json with context %}
+
+
+{% block content %}
+    
+    <img src='https://quickchart.io/chart?c={{ outlabeled_pie_json | urlencode() }}'>
+
+{% endblock %}

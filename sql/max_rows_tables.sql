@@ -5,7 +5,7 @@ select table_name
              , rank() over (order by n_live_tup desc) as rank
              , n_live_tup as rows_count
           from pg_stat_all_tables
-         where schemaname = 'bookings') s
- where rank <= 5
+         where schemaname = %(schema)s) s
+ where rank <= %(max_table_count)s
  group by table_name, rank
  order by 2 desc
