@@ -1,4 +1,5 @@
 # Chagall
+
 Turn your data into something beautiful
 
 
@@ -18,6 +19,17 @@ pip3 install -r ./requirements.txt
 Run:
 ```
 python ./chagall.py -h
+```
+
+
+## Examples
+
+Explore examples:
+```
+python chagall.py templates/big_tables/quickchart.html.j2 docs/examples/big_tables/quickchart.html
+python chagall.py templates/big_tables/chartjs.html.j2 docs/examples/big_tables/chartjs.html
+
+python chagall.py templates/er_diagram/mermaid.html.j2 docs/examples/er_diagram/mermaid.html
 ```
 
 

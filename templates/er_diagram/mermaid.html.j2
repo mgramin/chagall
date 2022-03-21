@@ -1,0 +1,31 @@
+{% extends "templates/_common/bootstrap.html.j2" %}
+
+{% import 'templates/er_diagram/table_columns.sql.j2' as tables_sql with context %}
+{% set tables = fetchall(tables_sql | string) %}
+
+{% import 'sql/table_relationships.sql' as table_relationships_sql with context %}
+{% set table_relationships = fetchall(table_relationships_sql | string) %}
+
+
+{% block content %}
+
+    <div class="row">
+        <div class="col">
+            <div class="mermaid">
+                erDiagram
+                {% for table in tables %}
+                    {{ table["table_name"] }} {
+                        {{ table["columns"] }}
+                    }
+                {% endfor %}
+                
+                {% for table_relationship in table_relationships %}
+                    {{ table_relationship["main_table"] }} ||--|{ {{ table_relationship["slave_table"] }} : contains
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+
+{% endblock %}
