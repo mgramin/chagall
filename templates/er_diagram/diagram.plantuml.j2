@@ -1,0 +1,32 @@
+{% import 'sql/table_columns.sql' as table_columns_sql with context %}
+{% set columns = fetchall(table_columns_sql | string) %}
+
+{% import 'sql/table_relationships.sql' as table_relationships_sql with context %}
+{% set table_relationships = fetchall(table_relationships_sql | string) %}
+
+
+@startuml
+!theme superhero-outline
+' hide the spot
+hide circle
+
+' avoid problems with angled crows feet
+skinparam linetype ortho
+
+
+{% for table_name, table_columns in columns|groupby("table_name") %}
+    entity "{{ table_name }}" {
+        {% for table_column in table_columns -%}
+        {% if table_column.is_nullable == 'NO' %}*{% endif %} {{ table_column.column_name }} : {{ table_column.data_type }}
+        {% if loop.index == 1 %}--
+        {% endif %}
+        {%- endfor %}}
+{% endfor %}
+
+
+{% for table_relationship in table_relationships %}
+    {{ table_relationship["main_table"] }} ||..o{ {{ table_relationship["slave_table"] }}
+{% endfor %}
+
+
+@enduml

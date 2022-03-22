@@ -1,7 +1,7 @@
 {% extends "templates/_common/bootstrap.html.j2" %}
 
-{% import 'templates/er_diagram/table_columns.sql.j2' as tables_sql with context %}
-{% set tables = fetchall(tables_sql | string) %}
+{% import 'sql/table_columns.sql' as table_columns_sql with context %}
+{% set columns = fetchall(table_columns_sql | string) %}
 
 {% import 'sql/table_relationships.sql' as table_relationships_sql with context %}
 {% set table_relationships = fetchall(table_relationships_sql | string) %}
@@ -13,9 +13,11 @@
         <div class="col">
             <div class="mermaid">
                 erDiagram
-                {% for table in tables %}
-                    {{ table["table_name"] }} {
-                        {{ table["columns"] }}
+                {% for table_name, table_columns in columns|groupby("table_name") %}
+                    {{ table_name }} {
+                        {% for table_column in table_columns %}
+                        {{ table_column.column_name }} {{ table_column.data_type | replace(' ', '_') }}
+                        {% endfor %}
                     }
                 {% endfor %}
                 

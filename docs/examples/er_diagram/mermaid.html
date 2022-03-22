@@ -28,64 +28,109 @@
                 erDiagram
                 
                     aircrafts_data {
+                        
+                        aircraft_code character
+                        
                         model jsonb
-range integer
-aircraft_code character
+                        
+                        range integer
+                        
                     }
                 
                     airports_data {
+                        
                         airport_code character
-city jsonb
-airport_name jsonb
-coordinates point
-timezone text
+                        
+                        airport_name jsonb
+                        
+                        city jsonb
+                        
+                        coordinates point
+                        
+                        timezone text
+                        
                     }
                 
                     boarding_passes {
+                        
                         ticket_no character
-boarding_no integer
-seat_no character_varying
-flight_id integer
+                        
+                        flight_id integer
+                        
+                        boarding_no integer
+                        
+                        seat_no character_varying
+                        
                     }
                 
                     bookings {
+                        
+                        book_ref character
+                        
                         book_date timestamp_with_time_zone
-book_ref character
-total_amount numeric
+                        
+                        total_amount numeric
+                        
                     }
                 
                     flights {
+                        
+                        flight_id integer
+                        
+                        flight_no character
+                        
+                        scheduled_departure timestamp_with_time_zone
+                        
+                        scheduled_arrival timestamp_with_time_zone
+                        
+                        departure_airport character
+                        
+                        arrival_airport character
+                        
+                        status character_varying
+                        
                         aircraft_code character
-flight_id integer
-flight_no character
-scheduled_departure timestamp_with_time_zone
-scheduled_arrival timestamp_with_time_zone
-departure_airport character
-arrival_airport character
-status character_varying
-actual_departure timestamp_with_time_zone
-actual_arrival timestamp_with_time_zone
+                        
+                        actual_departure timestamp_with_time_zone
+                        
+                        actual_arrival timestamp_with_time_zone
+                        
                     }
                 
                     seats {
+                        
+                        aircraft_code character
+                        
+                        seat_no character_varying
+                        
                         fare_conditions character_varying
-aircraft_code character
-seat_no character_varying
+                        
                     }
                 
                     ticket_flights {
+                        
                         ticket_no character
-amount numeric
-fare_conditions character_varying
-flight_id integer
+                        
+                        flight_id integer
+                        
+                        fare_conditions character_varying
+                        
+                        amount numeric
+                        
                     }
                 
                     tickets {
+                        
+                        ticket_no character
+                        
+                        book_ref character
+                        
+                        passenger_id character_varying
+                        
                         passenger_name text
-contact_data jsonb
-ticket_no character
-book_ref character
-passenger_id character_varying
+                        
+                        contact_data jsonb
+                        
                     }
                 
                 

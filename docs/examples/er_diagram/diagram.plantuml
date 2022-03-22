@@ -1,0 +1,106 @@
+
+
+
+
+
+
+
+@startuml
+!theme superhero-outline
+' hide the spot
+hide circle
+
+' avoid problems with angled crows feet
+skinparam linetype ortho
+
+
+
+    entity "aircrafts_data" {
+        * aircraft_code : character
+        --
+        * model : jsonb
+        * range : integer
+        }
+
+    entity "airports_data" {
+        * airport_code : character
+        --
+        * airport_name : jsonb
+        * city : jsonb
+        * coordinates : point
+        * timezone : text
+        }
+
+    entity "boarding_passes" {
+        * ticket_no : character
+        --
+        * flight_id : integer
+        * boarding_no : integer
+        * seat_no : character varying
+        }
+
+    entity "bookings" {
+        * book_ref : character
+        --
+        * book_date : timestamp with time zone
+        * total_amount : numeric
+        }
+
+    entity "flights" {
+        * flight_id : integer
+        --
+        * flight_no : character
+        * scheduled_departure : timestamp with time zone
+        * scheduled_arrival : timestamp with time zone
+        * departure_airport : character
+        * arrival_airport : character
+        * status : character varying
+        * aircraft_code : character
+         actual_departure : timestamp with time zone
+         actual_arrival : timestamp with time zone
+        }
+
+    entity "seats" {
+        * aircraft_code : character
+        --
+        * seat_no : character varying
+        * fare_conditions : character varying
+        }
+
+    entity "ticket_flights" {
+        * ticket_no : character
+        --
+        * flight_id : integer
+        * fare_conditions : character varying
+        * amount : numeric
+        }
+
+    entity "tickets" {
+        * ticket_no : character
+        --
+        * book_ref : character
+        * passenger_id : character varying
+        * passenger_name : text
+         contact_data : jsonb
+        }
+
+
+
+
+    aircrafts_data ||..o{ flights
+
+    aircrafts_data ||..o{ seats
+
+    airports_data ||..o{ flights
+
+    bookings ||..o{ tickets
+
+    flights ||..o{ ticket_flights
+
+    ticket_flights ||..o{ boarding_passes
+
+    tickets ||..o{ ticket_flights
+
+
+
+@enduml
