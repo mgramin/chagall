@@ -1,34 +1,132 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
-
-
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.5.0/build/styles/default.min.css">
 
 
 
-    <title>Hello from Chagall!</title>
-  </head>
-  <body>
-    <div class="container">
 
-        
 
-    </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-
-    <script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.5.0/build/highlight.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.5.0/build/languages/sql.min.js"></script>
-    <script>hljs.highlightAll();</script>
-
-  </body>
-</html>
+```mermaid
+                erDiagram
+                
+                    aircrafts_data {
+                        
+                        aircraft_code character
+                        
+                        model jsonb
+                        
+                        range integer
+                        
+                    }
+                
+                    airports_data {
+                        
+                        airport_code character
+                        
+                        airport_name jsonb
+                        
+                        city jsonb
+                        
+                        coordinates point
+                        
+                        timezone text
+                        
+                    }
+                
+                    boarding_passes {
+                        
+                        ticket_no character
+                        
+                        flight_id integer
+                        
+                        boarding_no integer
+                        
+                        seat_no character_varying
+                        
+                    }
+                
+                    bookings {
+                        
+                        book_ref character
+                        
+                        book_date timestamp_with_time_zone
+                        
+                        total_amount numeric
+                        
+                    }
+                
+                    flights {
+                        
+                        flight_id integer
+                        
+                        flight_no character
+                        
+                        scheduled_departure timestamp_with_time_zone
+                        
+                        scheduled_arrival timestamp_with_time_zone
+                        
+                        departure_airport character
+                        
+                        arrival_airport character
+                        
+                        status character_varying
+                        
+                        aircraft_code character
+                        
+                        actual_departure timestamp_with_time_zone
+                        
+                        actual_arrival timestamp_with_time_zone
+                        
+                    }
+                
+                    seats {
+                        
+                        aircraft_code character
+                        
+                        seat_no character_varying
+                        
+                        fare_conditions character_varying
+                        
+                    }
+                
+                    ticket_flights {
+                        
+                        ticket_no character
+                        
+                        flight_id integer
+                        
+                        fare_conditions character_varying
+                        
+                        amount numeric
+                        
+                    }
+                
+                    tickets {
+                        
+                        ticket_no character
+                        
+                        book_ref character
+                        
+                        passenger_id character_varying
+                        
+                        passenger_name text
+                        
+                        contact_data jsonb
+                        
+                    }
+                
+                
+                
+                    aircrafts_data ||--|{ flights : contains
+                
+                    aircrafts_data ||--|{ seats : contains
+                
+                    airports_data ||--|{ flights : contains
+                
+                    bookings ||--|{ tickets : contains
+                
+                    flights ||--|{ ticket_flights : contains
+                
+                    ticket_flights ||--|{ boarding_passes : contains
+                
+                    tickets ||--|{ ticket_flights : contains
+                
+```
