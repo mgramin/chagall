@@ -3,7 +3,7 @@
 Chagall is a dramatically simple Python-script with a bunch of predefined SQL-scripts and Jinja2 templates for turning your data into something beautiful (docs, charts, diagrams, configurations etc.)
 
 
-## How to Run it
+## How to run it
 
 Init and activate virtual env (optional):
 ```
@@ -52,4 +52,5 @@ python chagall.py templates/er_diagram/diagram.plantuml.j2 docs/examples/er_diag
 
 
 ### Recomended VS Code plugins
+
 - [Better Jinja](https://marketplace.visualstudio.com/items?itemName=samuelcolvin.jinjahtml) - Syntax highlighting for jinja(2) including HTML, SQL, JSON, Markdown and other templates.
