@@ -2,7 +2,6 @@
 
 
 
-
 .aircrafts_data 
 [cols="1,3,3,1,1"]
 |===
@@ -17,13 +16,13 @@
 |2
 |model
 |jsonb
-|None
+|
 |
 
 |3
 |range
 |integer
-|None
+|
 |
 
 |===
@@ -42,25 +41,25 @@
 |2
 |airport_name
 |jsonb
-|None
+|
 |
 
 |3
 |city
 |jsonb
-|None
+|
 |
 
 |4
 |coordinates
 |point
-|None
+|
 |
 
 |5
 |timezone
 |text
-|None
+|
 |
 
 |===
@@ -79,13 +78,13 @@
 |2
 |flight_id
 |integer
-|None
+|
 |
 
 |3
 |boarding_no
 |integer
-|None
+|
 |
 
 |4
@@ -110,13 +109,13 @@
 |2
 |book_date
 |timestamp with time zone
-|None
+|
 |
 
 |3
 |total_amount
 |numeric
-|None
+|
 |
 
 |===
@@ -129,7 +128,7 @@
 |1
 |flight_id
 |integer
-|None
+|
 |
 
 |2
@@ -141,13 +140,13 @@
 |3
 |scheduled_departure
 |timestamp with time zone
-|None
+|
 |
 
 |4
 |scheduled_arrival
 |timestamp with time zone
-|None
+|
 |
 
 |5
@@ -177,13 +176,13 @@
 |9
 |actual_departure
 |timestamp with time zone
-|None
+|
 |V
 
 |10
 |actual_arrival
 |timestamp with time zone
-|None
+|
 |V
 
 |===
@@ -227,7 +226,7 @@
 |2
 |flight_id
 |integer
-|None
+|
 |
 
 |3
@@ -239,7 +238,7 @@
 |4
 |amount
 |numeric
-|None
+|
 |
 
 |===
@@ -270,13 +269,13 @@
 |4
 |passenger_name
 |text
-|None
+|
 |
 
 |5
 |contact_data
 |jsonb
-|None
+|
 |V
 
 |===
