@@ -48,7 +48,7 @@ Foremost, to demonstrate the power of SQL.
 
 If we combine them together, we can do great things.
 
-For example, we can take two simple SQL-scripts ([table_columns.sql](sql/table_columns.sql) and [table_relationships.sql](sql/table_relationships.sql)), pass them through PlantUML template ([diagram.plantuml.j2](templates/er_diagram/diagram.plantuml.j2)) and get ER-diagram for your DB of our own taste and without any tricky third-party tools:
+For example, we can take two simple SQL-scripts ([table_columns.sql](sql/table_columns.sql) and [table_relationships.sql](sql/table_relationships.sql)), pass them through a simple PlantUML-template ([diagram.plantuml.j2](templates/er_diagram/diagram.plantuml.j2)) and get ER-diagram for your DB of our own taste and without any tricky third-party tools:
 
 ![example](diagram.png)
 
@@ -101,5 +101,7 @@ python chagall.py templates/er_diagram/diagram.plantuml.j2 docs/examples/er_diag
 
 
 ## Recomended VS Code plugins
+
+For productive and fast work with SQL scripts and Jinja2 templates, we use [Visual Studio Code](https://github.com/microsoft/vscode) with some additional plugins:
 
 - [Better Jinja](https://marketplace.visualstudio.com/items?itemName=samuelcolvin.jinjahtml) - Syntax highlighting for jinja(2) including HTML, SQL, JSON, Markdown and other templates.
