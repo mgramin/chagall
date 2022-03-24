@@ -4,129 +4,131 @@
 
 
 
+
+
 ```mermaid
-                erDiagram
+    erDiagram
+        
+            aircrafts_data {
                 
-                    aircrafts_data {
-                        
-                        aircraft_code character
-                        
-                        model jsonb
-                        
-                        range integer
-                        
-                    }
+                aircraft_code character
                 
-                    airports_data {
-                        
-                        airport_code character
-                        
-                        airport_name jsonb
-                        
-                        city jsonb
-                        
-                        coordinates point
-                        
-                        timezone text
-                        
-                    }
+                model jsonb
                 
-                    boarding_passes {
-                        
-                        ticket_no character
-                        
-                        flight_id integer
-                        
-                        boarding_no integer
-                        
-                        seat_no character_varying
-                        
-                    }
+                range integer
                 
-                    bookings {
-                        
-                        book_ref character
-                        
-                        book_date timestamp_with_time_zone
-                        
-                        total_amount numeric
-                        
-                    }
+            }
+        
+            airports_data {
                 
-                    flights {
-                        
-                        flight_id integer
-                        
-                        flight_no character
-                        
-                        scheduled_departure timestamp_with_time_zone
-                        
-                        scheduled_arrival timestamp_with_time_zone
-                        
-                        departure_airport character
-                        
-                        arrival_airport character
-                        
-                        status character_varying
-                        
-                        aircraft_code character
-                        
-                        actual_departure timestamp_with_time_zone
-                        
-                        actual_arrival timestamp_with_time_zone
-                        
-                    }
+                airport_code character
                 
-                    seats {
-                        
-                        aircraft_code character
-                        
-                        seat_no character_varying
-                        
-                        fare_conditions character_varying
-                        
-                    }
+                airport_name jsonb
                 
-                    ticket_flights {
-                        
-                        ticket_no character
-                        
-                        flight_id integer
-                        
-                        fare_conditions character_varying
-                        
-                        amount numeric
-                        
-                    }
+                city jsonb
                 
-                    tickets {
-                        
-                        ticket_no character
-                        
-                        book_ref character
-                        
-                        passenger_id character_varying
-                        
-                        passenger_name text
-                        
-                        contact_data jsonb
-                        
-                    }
+                coordinates point
                 
+                timezone text
                 
+            }
+        
+            boarding_passes {
                 
-                    aircrafts_data ||--|{ flights : contains
+                ticket_no character
                 
-                    aircrafts_data ||--|{ seats : contains
+                flight_id integer
                 
-                    airports_data ||--|{ flights : contains
+                boarding_no integer
                 
-                    bookings ||--|{ tickets : contains
+                seat_no character_varying
                 
-                    flights ||--|{ ticket_flights : contains
+            }
+        
+            bookings {
                 
-                    ticket_flights ||--|{ boarding_passes : contains
+                book_ref character
                 
-                    tickets ||--|{ ticket_flights : contains
+                book_date timestamp_with_time_zone
                 
+                total_amount numeric
+                
+            }
+        
+            flights {
+                
+                flight_id integer
+                
+                flight_no character
+                
+                scheduled_departure timestamp_with_time_zone
+                
+                scheduled_arrival timestamp_with_time_zone
+                
+                departure_airport character
+                
+                arrival_airport character
+                
+                status character_varying
+                
+                aircraft_code character
+                
+                actual_departure timestamp_with_time_zone
+                
+                actual_arrival timestamp_with_time_zone
+                
+            }
+        
+            seats {
+                
+                aircraft_code character
+                
+                seat_no character_varying
+                
+                fare_conditions character_varying
+                
+            }
+        
+            ticket_flights {
+                
+                ticket_no character
+                
+                flight_id integer
+                
+                fare_conditions character_varying
+                
+                amount numeric
+                
+            }
+        
+            tickets {
+                
+                ticket_no character
+                
+                book_ref character
+                
+                passenger_id character_varying
+                
+                passenger_name text
+                
+                contact_data jsonb
+                
+            }
+        
+                
+        
+            aircrafts_data ||--|{ flights : contains
+        
+            aircrafts_data ||--|{ seats : contains
+        
+            airports_data ||--|{ flights : contains
+        
+            bookings ||--|{ tickets : contains
+        
+            flights ||--|{ ticket_flights : contains
+        
+            ticket_flights ||--|{ boarding_passes : contains
+        
+            tickets ||--|{ ticket_flights : contains
+        
 ```

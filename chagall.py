@@ -29,8 +29,8 @@ def fetchone(query, params):
     result = cursor.fetchone()
     return result
 
-def fetchall(query):
-    cursor.execute(query)
+def fetchall(query, params):
+    cursor.execute(query, params)
     results = cursor.fetchall()
     return results
 

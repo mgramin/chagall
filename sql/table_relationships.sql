@@ -5,3 +5,4 @@ select distinct
   join information_schema.key_column_usage as kcu on tc.constraint_name = kcu.constraint_name
   join information_schema.constraint_column_usage as ccu on ccu.constraint_name = tc.constraint_name
  where tc.constraint_type = 'FOREIGN KEY'
+   and tc.table_schema = %(schema_name)s

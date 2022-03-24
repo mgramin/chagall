@@ -6,5 +6,6 @@ select c.table_schema
      , c.data_type
      , c.character_maximum_length
   from pg_tables t
-  join information_schema.columns c on c.table_schema = t.schemaname and c.table_name = t.tablename
- where table_schema = 'bookings'
+  join information_schema.columns c on c.table_schema = t.schemaname
+                                   and c.table_name = t.tablename
+ where table_schema = %(schema_name)s
