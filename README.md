@@ -1,6 +1,6 @@
 # Chagall
 
-Chagall is a dramatically simple Python-script with a bunch of predefined SQL-scripts and Jinja2 templates for turning your data into something beautiful (docs, charts, diagrams, configurations etc.)
+Chagall is a dramatically simple Python-script with a bunch of predefined SQL-scripts and Jinja2 templates for turning your data into something beautiful (docs, charts, diagrams, configuration files etc.)
 
 
 ## How it works
